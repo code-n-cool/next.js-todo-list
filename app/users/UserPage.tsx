@@ -79,7 +79,7 @@ export default function UserPage() {
                 e.target as HTMLElement
               ).closest<HTMLTableRowElement>("tr[data-id]");
               const id = row?.dataset.id;
-              if (id) router.push(`/users/${id}`);
+              if (id) router.push(`/users/item/${id}`);
             }}
           >
             {users.map((user) => (
@@ -88,7 +88,7 @@ export default function UserPage() {
                 data-id={user.id}
                 hover
                 sx={{ cursor: "pointer" }}
-                onClick={() => router.push(`/users/${user.id}`)}
+                onClick={() => router.push(`/users/item/${user.id}`)}
               >
                 <TableCell sx={{ color: "#fff" }}>{user.name}</TableCell>
                 <TableCell sx={{ color: "#ccc" }}>{user.email}</TableCell>

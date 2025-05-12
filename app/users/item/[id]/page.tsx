@@ -17,7 +17,7 @@ export default function UserDetailPage() {
 
     const fetchUser = async () => {
       try {
-        const res = await fetch(`http://localhost:4000/api/users/${id}`);
+        const res = await fetch(`/api/users/item?id=${id}`);
         if (!res.ok) return setUser(null);
         const data: User = await res.json();
         setUser(data);
