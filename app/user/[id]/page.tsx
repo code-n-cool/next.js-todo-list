@@ -1,9 +1,9 @@
 "use client";
 
-import { User } from "@/types/user";
-import { Box, Typography, Paper, Button } from "@mui/material";
-import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { Box, Typography, Paper, Button } from "@mui/material";
+import { User } from "@/types/user";
 
 export default function UserDetailPage() {
   const router = useRouter();

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Box,
   TextField,
@@ -14,9 +15,9 @@ import {
   Paper,
   Pagination,
 } from "@mui/material";
-import { useRouter, useSearchParams } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { fetchUsers } from "@/redux/usersSlice";
+import { logSearch } from "@/lib/apiClient";
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
@@ -26,24 +27,6 @@ export default function HomePage() {
   const q = searchParams.get("q") || "";
   const page = Number(searchParams.get("page") || "1");
   const router = useRouter();
-
-  const logSearch = async (term: string) => {
-    try {
-      await fetch("http://localhost:4000/api/logs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          action: "search",
-          query: term,
-          timestamp: new Date().toISOString(),
-        }),
-      });
-    } catch (err) {
-      console.error("Log failed:", err);
-    }
-  };
 
   useEffect(() => {
     dispatch(fetchUsers({ q, page }));

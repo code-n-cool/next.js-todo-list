@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Box,
   TextField,
@@ -14,18 +15,19 @@ import {
   Paper,
   Pagination,
 } from "@mui/material";
-import { useRouter, useSearchParams } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { fetchUsers } from "@/redux/usersSlice";
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
+
   const users = useAppSelector((state) => state.users.items);
   const total = useAppSelector((state) => state.users.total);
+
+  const router = useRouter();
   const searchParams = useSearchParams();
   const q = searchParams.get("q") || "";
   const page = Number(searchParams.get("page") || "1");
-  const router = useRouter();
 
   useEffect(() => {
     dispatch(fetchUsers({ q, page }));

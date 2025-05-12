@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import axiosClient from '@/lib/axiosClient';
+import { getUserById } from '@/lib/apiClient';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const userId = searchParams.get('id');
-  console.log("[debug]", userId);
+
+  if (!userId) {
+    return NextResponse.json({ error: 'Missing user ID' }, { status: 400 });
+  }
+
   try {
-    console.log("[debug]", "before fetch");
-    const res = await axiosClient.get(`/users/${userId}`);
-    console.log("[debug]", "after fetch");
-    return NextResponse.json(res.data);
+    const user = await getUserById(userId);
+    return NextResponse.json(user);
   } catch (error: any) {
     const status = error.response?.status || 500;
     const message = error.response?.data || error.message;
