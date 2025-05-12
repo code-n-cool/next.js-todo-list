@@ -48,18 +48,18 @@ This project is a fullstack application built with the latest technologies to de
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/nextjs-express-demo.git
-cd nextjs-express-demo
+git clone https://github.com/code-n-cool/next.js-todo-list.git
+git clone https://github.com/code-n-cool/express_zod_zustand_faker.git
 ```
 ### 2. Install dependencies
 
 ```bash
 # Install frontend dependencies
-cd frontend
+cd next.js-todo-list
 pnpm install
 
 # Install backend dependencies
-cd ../backend
+cd express_zod_zustand_faker
 pnpm install
 ```
 ### 3. Run locally
@@ -67,6 +67,7 @@ pnpm install
 Start backend (port 4000)
 
 ```bash
+cd express_zod_zustand_faker
 pnpm dev
 # or
 npm run dev
@@ -74,19 +75,19 @@ npm run dev
 
 Start frontend (port 3000)
 ```bash
-cd ../frontend
+cd next.js-todo-list
 pnpm dev
 # or
 npm run dev
 ```
 ### Folder Structure
 ```bash
-├── frontend/            # Next.js frontend
+├── frontend(next.js-todo-list)/            # Next.js frontend
 │   ├── app/
 │   ├── components/
 │   ├── lib/
 │   └── pages/
-├── backend/             # Express backend
+├── backend(next.js-todo-list)/             # Express backend
 │   ├── index.ts
 │   ├── mockData.ts
 │   └── utils/
