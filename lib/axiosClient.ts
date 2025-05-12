@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL: process.env.BACKEND_API_URL || "http://127.0.0.1:4000/api/",
+    baseURL: process.env.BACKEND_API_URL || "https://express-zod-zustand-faker.onrender.com/api/",
     headers: {
         'Content-Type': 'application/json',
     },
