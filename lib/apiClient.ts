@@ -16,8 +16,7 @@ export const getUserById = async (id: number | string): Promise<User> => {
 export const logSearch = async (term: string): Promise<void> => {
     try {
         await axiosClient.post('/logs', {
-            action: 'search',
-            query: term,
+            message: `the search triggered with '${term}' query`,
             timestamp: new Date().toISOString(),
         });
     } catch (error) {
